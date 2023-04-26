@@ -9,26 +9,36 @@ var dessertQ = new Question({question : "Is the food a dessert?",
 
 var soupQ = new Question({question : "Is the food a soup?",
                   yesArray : ["Chilli"],
-                  noArray : ["Spaghetti", "Hot Dog", "Pizza", "Chilli", "Icecream", "Chips", "Boba", "Smoothie"]});  
+                  noArray : ["Spaghetti", "Hot Dog", "Pizza", "Icecream", "Chips", "Boba", "Smoothie"]});  
 //////
 
 function askQuestion(){
     answer = "";
-    userResponse = document.getElementById("etOpening").value;
+    // userResponse = document.getElementById("etOpening").value;
     // console.log(beverageQ.getQuestion()); 
     const input = prompt(beverageQ.getQuestion());
 
-    if (input == "Yes" || input == "yes") {
+    if (input.toLowerCase() == "yes") { // string to lowercase 
         const array = beverageQ.getYesArray();
 
         console.log("moving forward with query..."); 
-        if (checkContains(dessertQ.getNoArray())) {
+        if (checkContains(array, soupQ.getYesArray())) {
             console.log("Contains!");
+        }
+        else {
+            // throw out soupQ of the validQ array
+            // then ask next thing in the validQ array
         }
         
     }
-    else {
+    else if (input.toLowerCase() == "no"){
         console.log("Lame..");
+
+        // if user responds no
+        // check the currentQ.getNoArray()
+        // compare it to a otherQ.getYesArray() 
+        // if a food in currentQ.getNoArray() is in otherQ.getYesArray().. then we WANT to asked otherQ (KEEP QUESTION)
+
     }
 
 }
@@ -40,13 +50,14 @@ function askQuestion(){
  * @param {*} compareArray 
  */
 function checkContains(array, compareArray) {
-    for (item in array) {
-        for (comparer in compareArray) {
-            if (item == comparer){
-                return false;
+    for (i = 0; i < array.length; i++){
+        for (j = 0; j < compareArray.length; j++) {
+            console.log("Comparing "+  array[i] + " and  " + compareArray[j]);
+            if (array[i] ===  compareArray[j]) {
+                return true;
             }
         }
     }
-    return true;
+    return false;
 }
                   
