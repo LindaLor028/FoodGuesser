@@ -1,28 +1,25 @@
-// initialize questions 
-var beverageQ = new Question({question : "Is the food a beverage?",
-                  yesArray : ["Boba", "Smoothie"],
-                  noArray : ["Spaghetti", "Hot Dog", "Pizza", "Chilli", "Icecream", "Chips"]});  
 
-var dessertQ = new Question({question : "Is the food a dessert?",
-                  yesArray : ["Boba", "Smoothie", "Icecream"],
-                  noArray : ["Spaghetti", "Hot Dog", "Pizza", "Chilli", "Chips"]});  
-
-var soupQ = new Question({question : "Is the food a soup?",
-                  yesArray : ["Chilli"],
-                  noArray : ["Spaghetti", "Hot Dog", "Pizza", "Icecream", "Chips", "Boba", "Smoothie"]});  
 //////
 
 function askQuestion(){
     answer = "";
     // userResponse = document.getElementById("etOpening").value;
     // console.log(beverageQ.getQuestion()); 
-    const input = prompt(beverageQ.getQuestion());
+    // const input = prompt(beverageQ.getQuestion());
 
+    // 1. randomly choose a question from question array
+    currQObj = questions.beverageQ;
+
+    // 2. prompt the question
+    currQ = currQObj.question;
+    const input = prompt(currQ);
+
+    // 3. check answers with other questions
     if (input.toLowerCase() == "yes") { // string to lowercase 
-        const array = beverageQ.getYesArray();
+        const array = questions.beverageQ.yesArray;
 
         console.log("moving forward with query..."); 
-        if (checkContains(array, soupQ.getYesArray())) {
+        if (checkContains(array, questions.soupQ.yesArray)) {
             console.log("Contains!");
         }
         else {
@@ -31,16 +28,35 @@ function askQuestion(){
         }
         
     }
-    else if (input.toLowerCase() == "no"){
+    else if (input.toLowerCase() == "no"){ // if user responds no
         console.log("Lame..");
 
-        // if user responds no
+
+        const array = questions.beverageQ.noArray;
+        
         // check the currentQ.getNoArray()
         // compare it to a otherQ.getYesArray() 
         // if a food in currentQ.getNoArray() is in otherQ.getYesArray().. then we WANT to asked otherQ (KEEP QUESTION)
 
     }
 
+}
+
+/**
+ *
+ */
+ function findMatch(potentialQuestions) {
+    newPotential = {};
+
+    for (i = 0; i < potentialQuestions; i++){
+        for (j = 0; j < compareArray.length; j++) {
+            console.log("Comparing "+  array[i] + " and  " + compareArray[j]);
+            if (array[i] ===  compareArray[j]) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 /**
