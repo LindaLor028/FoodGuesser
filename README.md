@@ -11,6 +11,7 @@ Enjoy,
 Linda Lor & Nina Lin
 
 ![Enjoy](enjoy.png)
+<img src="enjoy.png" width="250" height="150">
 
 **How To Run Food Guesser**
 
