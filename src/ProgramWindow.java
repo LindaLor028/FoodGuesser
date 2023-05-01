@@ -1,8 +1,12 @@
 import java.util.ArrayList;
-
 import edu.macalester.graphics.CanvasWindow;
 import edu.macalester.graphics.Image;
 
+
+/**
+ * The ProgramWindow class is written by Linda Lor and Nina Lin on 4/30/2023. This class represents the graphics window of our program. 
+ * It relies on Macalester College's Graphics Library to perform. 
+ */
 public class ProgramWindow {
     
     private CanvasWindow canvas;
@@ -15,17 +19,28 @@ public class ProgramWindow {
     private String[] foodNames = {"Milk Tea", "Orange Juice", "Soda", "Cake", "Ice Cream", "Macaron", "Chilli", "Chowder", "Wild Rice Soup"};
     private ArrayList<Food> foods = new ArrayList<Food>();
 
+    /**
+     * Constructor
+     */
     public ProgramWindow() {
         canvas = new CanvasWindow("ProgramWindow", DEFAULT_WIDTH, DEFAULT_HEIGHT);
         setUpUI();
         canvas.draw();
     }
 
+    /**
+     * This method sets up the basic UI of the window. 
+     */
     private void setUpUI() {
         Image title = new Image("gametitle.png");
-        title.setCenter(380, 100);
+        title.setCenter(380, 80);
         title.setMaxHeight(50);
         canvas.add(title);
+
+        Image instructions = new Image("instructions.png");
+        instructions.setCenter(380, 130);
+        instructions.setMaxHeight(30.0);
+        canvas.add(instructions);
 
         for (int i = 0; i < 3; i ++) {
             Image image = new Image(imgPaths[i]);
@@ -55,23 +70,26 @@ public class ProgramWindow {
         }
     }
 
+    /**
+     * This method returns the foods array that is associated in this class. 
+     * @return
+     */
     public ArrayList<Food> getFoodArray() {
         return foods;
     }
 
+    /**
+     * This method "scribbles" on the canvas based on the x and y coordinates that are 
+     * pushed in the parameter. 
+     * @param x
+     * @param y
+     */
     public void scribble(double x, double y) {
         Image image = new Image("scribble.png");
         canvas.add(image);
         image.setPosition(x, y);
         image.setMaxHeight(100.0);
-        // images.add(image);
         canvas.draw();
-    }
-
-    public static void main(String[] args) {
-        ProgramWindow window = new ProgramWindow();
-        window.setUpUI();
-        
     }
     
 }
