@@ -208,7 +208,6 @@ public class Guesser {
 
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
         ProgramWindow programWindow = new ProgramWindow();
         Guesser app = new Guesser(programWindow);
         app.askQuestion(questionList);
