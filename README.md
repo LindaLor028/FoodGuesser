@@ -10,8 +10,7 @@ Enjoy,
 
 Linda Lor & Nina Lin
 
-![Enjoy](enjoy.png)
-<img src="enjoy.png" width="250" height="150">
+<img src="enjoy.png" width="250" height="160">
 
 **How To Run Food Guesser**
 
@@ -19,10 +18,12 @@ To run Food Guesser, you can clone this repository onto your device. You can the
 
 **The Food Guesser Algorithm**
 The core of our project is in the Guesser class- which implments the algorithm for guesser. Below shows the basic steps of it (mind you the guessing is done recursively...).
-![algorithm explanation](algo1.png)
+
+<img src="algo1.png" width="450" height="360">
 
 Here is the algorithm in practice: 
-![algorithm explanation](algo2.png)
+
+<img src="algo2.png" width="450" height="500">
 
 **Future Development Notes**
 
