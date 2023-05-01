@@ -104,26 +104,10 @@ public class Guesser {
     /**
      * The findMatchNo method populates the potentialQuestions based on the currQNoArray and the question's YesArray.
      * @param potentialQuestions
-     * @param currQYesArray
-     * @return
-     */
-    public ArrayList<Question> findMatchYes(ArrayList<Question> potentialQuestions, String[] currQYesArray) {
-        ArrayList<Question> newPotential = new ArrayList<>();
-        for (Question q : potentialQuestions) {
-            if (!q.isAsked() && checkContains(currQYesArray, q.getYesArray())) {
-                newPotential.add(q);
-            }
-        }
-        return newPotential;
-    }
-
-    /**
-     * The findMatchNo method populates the potentialQuestions based on the currQNoArray and the question's YesArray.
-     * @param potentialQuestions
      * @param currQNoArray
      * @return
      */
-    public ArrayList<Question> findMatchNo(ArrayList<Question> potentialQuestions, String[] currQNoArray) {
+    public ArrayList<Question> findMatch(ArrayList<Question> potentialQuestions, String[] currQNoArray) {
         ArrayList<Question> newPotential = new ArrayList<>();
         for (Question q : potentialQuestions) {
             if (!q.isAsked() && checkContains(currQNoArray, q.getYesArray())) {
@@ -143,7 +127,7 @@ public class Guesser {
     public boolean checkContains(String[] array, String[] compareArray) {
         for (String currObj : array){
             for (String otherObj : compareArray) {
-\                if (currObj.equals(otherObj)) {
+                if (currObj.equals(otherObj)) {
                     return true;
                 }
             }     
@@ -174,13 +158,13 @@ public class Guesser {
         if (input.equalsIgnoreCase("yes")) { 
             String[] currQYesArray = currQObj.getYesArray(); 
             addYesArrayIntoPotentialAnswers(currQYesArray);
-            potentialQuestions = findMatchYes(potentialQuestions, currQYesArray);
+            potentialQuestions = findMatch(potentialQuestions, currQYesArray);
             
         }
         else if (input.equalsIgnoreCase("no")){
             String[] currQNoArray = currQObj.getNoArray();
             removeValuesFromPotentialAnswers(currQObj.getYesArray());
-            potentialQuestions = findMatchNo(potentialQuestions, currQNoArray);
+            potentialQuestions = findMatch(potentialQuestions, currQNoArray);
 
         }
         else {
