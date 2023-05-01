@@ -4,13 +4,27 @@ Welcome!
 
 FoodGuesser is a game that models the popular Akinator but with a twist on food. The player is asked a series of questions and the program returns an educated guess of what the program thinks the food item in question is.
 
+We've worked pretty hard on this program, so we hope you can download it and try it for yourself! 
+
+Enjoy,
+
+Linda Lor & Nina Lin
+
+![Enjoy](enjoy.png)
+
 **How To Run Food Guesser**
+
 To run Food Guesser, you can clone this repository onto your device. You can then run the main method in Guesser.java (line 226). Food Guesser relies on Macalester College's Graphics Library for the ProgramWindow class, but the library should be implmented already. 
 
 **The Food Guesser Algorithm**
+The core of our project is in the Guesser class- which implments the algorithm for guesser. Below shows the basic steps of it (mind you the guessing is done recursively...).
+![algorithm explanation](algo1.png)
 
+Here is the algorithm in practice: 
+![algorithm explanation](algo2.png)
 
 **Future Development Notes**
+
 In Food Guesser's Algorithm, the main focus is to implement an algorithm that efficiently eliminates options for a possible guess until it can guess the most accurate response. Due to time limitations, our program has the following constraints:
 * Guesses are limited to 9 options 
 * Questions are limited and need to have a pre-defined yesArray and noArray 
@@ -22,6 +36,7 @@ In the event that there is more time to improve the Food Guesser's Algorithm, we
 * CHANGE OF DATA STRUCTURES: Some data structures (e.g. yesArray and noArrays are String[]) give us limitations that may slow our program down. We would encourage using a different data structure that may be faster to iterate through or run the contains() method.
 
 **Credits & Acknowledgements**
+
 Credits for the Food Guesser Program are provided in the class documentation, but we would like to explicitly credit those in our ReadME as well. Below lists those who we would like to credit for their contributions to the project:
 * Food.java (Nina Lin)
 * Question.java (Linda Lor)
